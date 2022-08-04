@@ -1,8 +1,10 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Live Project
+Link for project[https://nextjs-delta-seven-68.vercel.app/]
 
 ## Getting Started
 
-First, run the development server:
+First, run the dhe development server:
 
 ```bash
 npm run dev
