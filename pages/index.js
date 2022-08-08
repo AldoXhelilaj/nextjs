@@ -74,8 +74,9 @@ const meetUps =  await collection.find().toArray();
         address:elem.address,
         id:elem._id.toString()
       })),
-      revalidate: 1
-    }
+    },
+    revalidate: 1
+
   }
 }
 

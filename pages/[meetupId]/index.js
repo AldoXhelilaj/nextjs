@@ -62,7 +62,8 @@ export async function getStaticProps(context) {
                 description:meetUps.description,
                 image:meetUps.image
             }
-        }
+        },
+        revalidate:1
     }
 }
 export default DetailMeetUp;
