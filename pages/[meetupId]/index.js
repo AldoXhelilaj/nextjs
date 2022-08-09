@@ -3,8 +3,13 @@ import {
     , ObjectId
 } from 'mongodb';
 import MeetUpDetail from '../../components/meetups/MeetUpDetail'
+import Loader from '../../components/ui/Loader'
 const DetailMeetUp = (props) => {
-
+    if (!props.meetupData) {
+        return <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <Loader />
+        </div>;
+    }
     return (
 
         <MeetUpDetail
@@ -31,7 +36,7 @@ export async function getStaticPaths() {
 
     client.close();
     return {
-        fallback: 'blocking',
+        fallback: true,
         paths: meetUps.map((meetup) => ({
             params: {
                 meetupId: meetup._id.toString()
@@ -56,14 +61,14 @@ export async function getStaticProps(context) {
     return {
         props: {
             meetupData: {
-                id:meetUps._id.toString(),
-                title:meetUps.title,
-                address:meetUps.address,
-                description:meetUps.description,
-                image:meetUps.image
+                id: meetUps._id.toString(),
+                title: meetUps.title,
+                address: meetUps.address,
+                description: meetUps.description,
+                image: meetUps.image
             }
         },
-        revalidate:1
+        revalidate: 1
     }
 }
 export default DetailMeetUp;

@@ -1,5 +1,6 @@
 import Card from '../ui/Card';
 import classes from './MeetupItem.module.css';
+import Loader from '../../components/ui/Loader'
 import {useRouter} from 'next/router';
 
 function MeetupItem(props) {
@@ -9,6 +10,12 @@ function MeetupItem(props) {
     router.push('/' + props.id)
 
   }
+
+  if (!props) {
+    return <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <Loader />
+    </div>;
+}
 
 
   return (
